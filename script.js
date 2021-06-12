@@ -109,9 +109,6 @@ function levelThree(){
 
 function levelComplete(){
     background(0,200,0);
-    fill(0,200,0);
-    noStroke();
-    rect(200,40,100,80);
     text("Congratulations!", width/2, height-20);
     
   }
