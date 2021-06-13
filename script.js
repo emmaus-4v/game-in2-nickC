@@ -24,7 +24,7 @@ var score = 0;
 var gameState = "L1";
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(1280, 720);
   textAlign(CENTER);
   textSize(20);
 } // end of setup  ================================
@@ -45,12 +45,16 @@ function draw() {
   }
   if(gameState == "L4"){
     levelComplete();
+    alert("CONGRATULATIONS");
+    document.location.reload();
+
+    }
   }
   
   text(("Score: " + score),width/2,40);
   
-  text('time: ' + currentTime, 200, 40);
-} // end of draw ===================================
+  text('Time: ' + currentTime, 200, 40);
+} // end of draw 
 
 function levelOne(){
   text("Level 1", width/2,height-20);
@@ -68,7 +72,7 @@ function levelOne(){
   ellipse(ballx,bally, ballSize, ballSize);
   line(ballx,bally,mouseX,mouseY);
   
-} // end of level 1  ===============================
+} // end of level 1  
 
 function levelTwo(){
   background(200,100,0);
@@ -86,7 +90,7 @@ function levelTwo(){
   //line(ballx,bally,mouseX,mouseY);
   ellipse(ballx,bally, ballSize, ballSize);
   
-} // end of level 2  ===============================
+} // end of level 2  
 
 function levelThree(){
   background(0,100,200);
