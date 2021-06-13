@@ -20,8 +20,8 @@
 const SPELEN = 1;
 const CONGRATULATIONS = 2;
 var spelStatus = SPELEN;
-var ballx = 300;
-var bally = 300;
+var ballx = 640;
+var bally = 360;
 var ballSize = 40;
 var score = 0;
 var gameState = "L1";
@@ -36,7 +36,7 @@ function setup() {
 function draw() {
   background(220);
   var currentTime = floor(millis()/1000);
-  
+
   if(gameState == "L1"){
   	levelOne();
   }
@@ -51,22 +51,19 @@ function draw() {
     spelStatus = CONGRATULATIONS;
     alert("CONGRATULATIONS");
     document.location.reload();
-
     }
-  }
+
+    text(("Score: " + score), 640, 40, 640, 40);
   
-  
-  text(("Score: " + score), 640, 40, 640, 40);
-  
-  text(('Time: ' + currentTime), 500, 40, 640, 40);
-    // end of draw 
+    text(('Time: ' + currentTime), 500, 40, 640, 40);
+}// end of draw 
 
 function levelOne(){
   text("Level 1", 640, 600, 640, 600);
   var distToBall = dist(ballx,bally,mouseX,mouseY);
   if(distToBall < ballSize/2){
-   	ballx = random(1280, 720);
-  	bally = random(1280, 720);
+   	ballx = random(1000, 400);
+  	bally = random(1000, 400);
     score = score + 1;
   }
   
@@ -84,8 +81,8 @@ function levelTwo(){
   text("Level 2!", 640, 600, 640, 600);
   var distToBall = dist(ballx,bally,mouseX,mouseY);
   if(distToBall < ballSize/2){
-   	ballx = random(1280, 720);
-  	bally = random(1280, 720);
+   	ballx = random(1000, 550);
+  	bally = random(1000, 550);
     score = score + 1;
   }
   
@@ -100,10 +97,10 @@ function levelTwo(){
 function levelThree(){
   background(0,100,200);
   text("Level 3!", 640, 600, 640, 600);
-  var distToBall = dist(ballx,bally,mouseX,mouseY);
+  var distToBall = any(ballx,bally,mouseX,mouseY);
   if(distToBall < ballSize/2){
-   	ballx = random(1280, 720);
-  	bally = random(1280, 720);
+   	ballx = random(1000, 550);
+  	bally = random(1000, 550);
     score = score + 1;
     ballSize = ballSize - 3;
   }
