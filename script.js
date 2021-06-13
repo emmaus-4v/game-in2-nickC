@@ -97,7 +97,7 @@ function levelTwo(){
 function levelThree(){
   background(0,100,200);
   text("Level 3!", 640, 600, 640, 600);
-  var distToBall = any(ballx,bally,mouseX,mouseY);
+  var distToBall = dist(ballx,bally,mouseX,mouseY);
   if(distToBall < ballSize/2){
    	ballx = random(1000, 550);
   	bally = random(1000, 550);
