@@ -23,30 +23,29 @@ var spelStatus = SPELEN;
 var ballx = 640;
 var bally = 360;
 var ballSize = 40;
+var gameState = "Level 1";
 var score = 0;
-var gameState = "L1";
-
 
 function setup() {
   createCanvas(1280, 720);
   textSize(20);
-} // end of setup  ================================
+} // eind setup
 
 
 function draw() {
   background(220);
   var currentTime = floor(millis()/1000);
 
-  if(gameState == "L1"){
-  	levelOne();
+  if(gameState == "Level 1"){
+  	levelEen();
   }
-  if(gameState == "L2"){
-   	levelTwo(); 
+  if(gameState == "Level 2"){
+   	levelTwee(); 
   }
-  if(gameState == "L3"){
-   	levelThree(); 
+  if(gameState == "Level 3"){
+   	levelDrie(); 
   }
-  if(gameState == "L4"){
+  if(gameState == "Level 4"){
     levelComplete();
     spelStatus = CONGRATULATIONS;
     alert("CONGRATULATIONS");
@@ -56,9 +55,9 @@ function draw() {
     text(("Score: " + score), 640, 40, 640, 40);
   
     text(('Time: ' + currentTime), 500, 40, 640, 40);
-}// end of draw 
+}  // eind draw
 
-function levelOne(){
+function levelEen(){
   text("Level 1", 640, 600, 640, 600);
   var distToBall = dist(ballx,bally,mouseX,mouseY);
   if(distToBall < ballSize/2){
@@ -68,15 +67,15 @@ function levelOne(){
   }
   
   if(score>= 15){
-    gameState = "L2";
+    gameState = "Level 2";
   }
   
   ellipse(ballx,bally, ballSize, ballSize);
   line(ballx,bally,mouseX,mouseY);
   
-} // end of level 1  
+} // eind level 1
 
-function levelTwo(){
+function levelTwee(){
   background(200,100,0);
   text("Level 2!", 640, 600, 640, 600);
   var distToBall = dist(ballx,bally,mouseX,mouseY);
@@ -87,14 +86,14 @@ function levelTwo(){
   }
   
   if(score>= 25){
-   gameState = "L3";
+   gameState = "Level 3";
   }
   //line(ballx,bally,mouseX,mouseY);
   ellipse(ballx,bally, ballSize, ballSize);
   
-} // end of level 2  
+} // eind level 2
 
-function levelThree(){
+function levelDrie(){
   background(0,100,200);
   text("Level 3!", 640, 600, 640, 600);
   var distToBall = dist(ballx,bally,mouseX,mouseY);
@@ -106,12 +105,12 @@ function levelThree(){
   }
   
   if(score>= 35){
-      gameState = "L4"; 
+      gameState = "Level 4"; 
   }
   //line(ballx,bally,mouseX,mouseY);
   ellipse(ballx,bally, ballSize, ballSize);
   
-} // end of level 3  
+} // eind level 3
 
 function levelComplete(){
     background(0,200,0);
