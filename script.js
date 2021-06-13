@@ -34,19 +34,34 @@ function draw() {
   background(155,155,155);
   var currentTime = floor(millis()/1000);
 
-  if(gameState == "Level 1"){
+   if(gameState == "Level 1"){
     levelEen();
-    levelUp.play();
   }
-  if(gameState == "Level 2"){
+
+   if(score == 50){
+    levelUp.play();
+   }
+   
+
+   if(gameState == "Level 2"){
     levelTwee();
     levelUp.play();
   }
-  if(gameState == "Level 3"){
+
+   if(score == 50){
+    levelUp.play();
+   }
+
+   if(gameState == "Level 3"){
     levelDrie();
     levelUp.play();    
   }
-  if(gameState == "Level 4"){
+
+   if(score == 200){
+    levelUp.play();
+   }
+   
+   if(gameState == "Level 4" && score == 600){
     levelComplete();
     gameFinish.play();
     // @ts-ignore
@@ -143,7 +158,7 @@ function levelComplete(){
     textSize(50)
     // @ts-ignore
     text("Congratulations!", 480, 360)
-    
+
 }// eind game (restart)
 
  
