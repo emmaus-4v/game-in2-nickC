@@ -17,9 +17,8 @@
 /* globale variabelen die je gebruikt in je game */
 /* ********************************************* */
 
-const SPELEN = 1;
-const CONGRATULATIONS = 2;
-var spelStatus = SPELEN;
+var gameFinish = new Audio('.sound/Mario Kart 64 Finish Line Sound Effect.mp3')
+var levelUp = new Audio('.sound/Mario-coin-sound.mp3');
 var ballx = 640;
 var bally = 360;
 var ballSize = 40;
@@ -28,92 +27,125 @@ var score = 0;
 
 function setup() {
   createCanvas(1280, 720);
-  textSize(20);
 } // eind setup
 
 
 function draw() {
-  background(220);
+  background(155,155,155);
   var currentTime = floor(millis()/1000);
 
   if(gameState == "Level 1"){
-  	levelEen();
+    levelEen();
+    levelUp.play();
   }
   if(gameState == "Level 2"){
-   	levelTwee(); 
+    levelTwee();
+    levelUp.play();
   }
   if(gameState == "Level 3"){
-   	levelDrie(); 
+    levelDrie();
+    levelUp.play();    
   }
   if(gameState == "Level 4"){
     levelComplete();
-    spelStatus = CONGRATULATIONS;
-    alert("CONGRATULATIONS");
-    document.location.reload();
+    gameFinish.play();
+    // @ts-ignore
+    levelCompleteText();
     }
 
-    text(("Score: " + score), 640, 40, 640, 40);
+    textSize(25);
+    // @ts-ignore
+    text(("Score: " + score), 960, 48);
   
-    text(('Time: ' + currentTime), 500, 40, 640, 40);
+    textSize(25);
+    // @ts-ignore
+    text(("Time: " + currentTime), 220, 48);
+
+
 }  // eind draw
 
 function levelEen(){
-  text("Level 1", 640, 600, 640, 600);
-  var distToBall = dist(ballx,bally,mouseX,mouseY);
-  if(distToBall < ballSize/2){
-   	ballx = random(1000, 400);
-  	bally = random(1000, 400);
-    score = score + 1;
+    textSize(30);
+  // @ts-ignore
+    text("Level 1", width/2,height-24);
+  // @ts-ignore
+     var distToBall = dist(ballx,bally,mouseX,mouseY);
+     if(distToBall < ballSize/2){
+   	// @ts-ignore
+   	ballx = random(width);
+  	// @ts-ignore
+  	bally = random(height);
+    score = score + 5;
   }
   
-  if(score>= 15){
+  if(score>= 50){
     gameState = "Level 2";
   }
   
   ellipse(ballx,bally, ballSize, ballSize);
   line(ballx,bally,mouseX,mouseY);
+
   
 } // eind level 1
 
 function levelTwee(){
   background(200,100,0);
-  text("Level 2!", 640, 600, 640, 600);
+  textSize(30);
+  // @ts-ignore
+  text("Level 2!", width/2,height-24);
+  // @ts-ignore
   var distToBall = dist(ballx,bally,mouseX,mouseY);
   if(distToBall < ballSize/2){
-   	ballx = random(1000, 550);
-  	bally = random(1000, 550);
-    score = score + 1;
+   	// @ts-ignore
+   	ballx = random(width);
+  	// @ts-ignore
+  	bally = random(height);
+    score = score + 10;
   }
   
-  if(score>= 25){
+  if(score>= 200){
    gameState = "Level 3";
   }
-  //line(ballx,bally,mouseX,mouseY);
+  
   ellipse(ballx,bally, ballSize, ballSize);
+
   
 } // eind level 2
 
 function levelDrie(){
   background(0,100,200);
-  text("Level 3!", 640, 600, 640, 600);
+  textSize(30);
+  // @ts-ignore
+  text("Level 3!", width/2,height-24);
+  // @ts-ignore
   var distToBall = dist(ballx,bally,mouseX,mouseY);
   if(distToBall < ballSize/2){
-   	ballx = random(1000, 550);
-  	bally = random(1000, 550);
-    score = score + 1;
-    ballSize = ballSize - 3;
+   	// @ts-ignore
+   	ballx = random(width);
+  	// @ts-ignore
+  	bally = random(height);
+    score = score + 50;
+    ballSize = ballSize - 5;
   }
   
-  if(score>= 35){
+  if(score>= 600){
       gameState = "Level 4"; 
   }
-  //line(ballx,bally,mouseX,mouseY);
+  
   ellipse(ballx,bally, ballSize, ballSize);
+
+
   
 } // eind level 3
 
 function levelComplete(){
     background(0,200,0);
-    text("Congratulations!", 640, 600, 640, 600);
-    
-  }
+    textSize(50)
+    // @ts-ignore
+    text("Congratulations!", 480, 360)
+}
+
+
+// eind game (restart)
+
+ 
