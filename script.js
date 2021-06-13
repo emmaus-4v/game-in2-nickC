@@ -17,15 +17,18 @@
 /* globale variabelen die je gebruikt in je game */
 /* ********************************************* */
 
+const SPELEN = 1;
+const CONGRATULATIONS = 2;
+var spelStatus = SPELEN;
 var ballx = 300;
 var bally = 300;
 var ballSize = 40;
 var score = 0;
 var gameState = "L1";
 
+
 function setup() {
   createCanvas(1280, 720);
-  textAlign(CENTER);
   textSize(20);
 } // end of setup  ================================
 
@@ -45,23 +48,25 @@ function draw() {
   }
   if(gameState == "L4"){
     levelComplete();
+    spelStatus = CONGRATULATIONS;
     alert("CONGRATULATIONS");
     document.location.reload();
 
     }
   }
   
-  text(("Score: " + score),width/2,40);
   
-  text('Time: ' + currentTime, 200, 40);
-} // end of draw 
+  text(("Score: " + score), 640, 40, 640, 40);
+  
+  text(('Time: ' + currentTime), 500, 40, 640, 40);
+    // end of draw 
 
 function levelOne(){
-  text("Level 1", width/2,height-20);
+  text("Level 1", 640, 600, 640, 600);
   var distToBall = dist(ballx,bally,mouseX,mouseY);
   if(distToBall < ballSize/2){
-   	ballx = random(width);
-  	bally = random(height);
+   	ballx = random(1280, 720);
+  	bally = random(1280, 720);
     score = score + 1;
   }
   
@@ -76,11 +81,11 @@ function levelOne(){
 
 function levelTwo(){
   background(200,100,0);
-  text("Level 2!", width/2,height-20);
+  text("Level 2!", 640, 600, 640, 600);
   var distToBall = dist(ballx,bally,mouseX,mouseY);
   if(distToBall < ballSize/2){
-   	ballx = random(width);
-  	bally = random(height);
+   	ballx = random(1280, 720);
+  	bally = random(1280, 720);
     score = score + 1;
   }
   
@@ -94,11 +99,11 @@ function levelTwo(){
 
 function levelThree(){
   background(0,100,200);
-  text("Level 3!", width/2,height-20);
+  text("Level 3!", 640, 600, 640, 600);
   var distToBall = dist(ballx,bally,mouseX,mouseY);
   if(distToBall < ballSize/2){
-   	ballx = random(width);
-  	bally = random(height);
+   	ballx = random(1280, 720);
+  	bally = random(1280, 720);
     score = score + 1;
     ballSize = ballSize - 3;
   }
@@ -109,10 +114,10 @@ function levelThree(){
   //line(ballx,bally,mouseX,mouseY);
   ellipse(ballx,bally, ballSize, ballSize);
   
-} // end of level 3  ===============================
+} // end of level 3  
 
 function levelComplete(){
     background(0,200,0);
-    text("Congratulations!", width/2, height-20);
+    text("Congratulations!", 640, 600, 640, 600);
     
   }
