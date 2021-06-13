@@ -1,6 +1,6 @@
 Deze game is gebaseerd op het template voor 4HV van het Emmauscollege Rotterdam
 
-## Mijn spel: *osu rx!*
+## Mijn spel: *osu relax!*
 Gemaakt door:
 - *Nick Cheung *
 

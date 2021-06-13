@@ -67,7 +67,7 @@ function draw() {
 function levelEen(){
     textSize(30);
   // @ts-ignore
-    text("Level 1", width/2,height-24);
+    text("Level 1", width/2-40,height-24);
   // @ts-ignore
      var distToBall = dist(ballx,bally,mouseX,mouseY);
      if(distToBall < ballSize/2){
@@ -92,7 +92,7 @@ function levelTwee(){
   background(200,100,0);
   textSize(30);
   // @ts-ignore
-  text("Level 2!", width/2,height-24);
+  text("Level 2!", width/2-40,height-24);
   // @ts-ignore
   var distToBall = dist(ballx,bally,mouseX,mouseY);
   if(distToBall < ballSize/2){
@@ -116,7 +116,7 @@ function levelDrie(){
   background(0,100,200);
   textSize(30);
   // @ts-ignore
-  text("Level 3!", width/2,height-24);
+  text("Level 3!", width/2-40,height-24);
   // @ts-ignore
   var distToBall = dist(ballx,bally,mouseX,mouseY);
   if(distToBall < ballSize/2){
@@ -143,9 +143,7 @@ function levelComplete(){
     textSize(50)
     // @ts-ignore
     text("Congratulations!", 480, 360)
-}
-
-
-// eind game (restart)
+    
+}// eind game (restart)
 
  
